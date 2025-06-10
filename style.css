@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0d0d0d;
+  color: #f5f5f5;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 2rem;
+  animation: fadeIn 1.6s ease-out both;
+}
+
+.headline {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+
+.subtext {
+  font-size: 1.3rem;
+  color: #b0b0b0;
+  margin-bottom: 0.5rem;
+}
+
+.caption {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(-50%); }
+}
+
+/* Email Notify Form */
+.notify-form {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.notify-form input[type="email"] {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #1a1a1a;
+  color: white;
+  width: 250px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.notify-form input::placeholder {
+  color: #888;
+}
+.notify-form input:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background-color: #222;
+}
+.notify-form button {
+  padding: 0.75rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff6a00, #ffaa00);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.notify-form button:hover {
+  background: linear-gradient(135deg, #ffaa00, #ff6a00);
+}
+
+/* Contact Button */
+.contact-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  background: transparent;
+  color: #ffaa00;
+  border: 2px solid #ffaa00;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact-button:hover {
+  background: #ffaa00;
+  color: #0d0d0d;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 0.5s ease-in;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+}
+.close-btn:hover {
+  color: #fff;
+}
+
+.contact-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: white;
+  resize: none;
+}
+.contact-form button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff6a00, #ffaa00);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.contact-form button:hover {
+  background: linear-gradient(135deg, #ffaa00, #ff6a00);
+}
+
+/* Visitor Count */
+.visitor-count {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #666;
+}
