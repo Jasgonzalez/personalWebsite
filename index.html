@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>codeJEG | Under Construction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Top Left Logo -->
+  <header class="site-header">
+    <span class="logo">codeJEG</span>
+  </header>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1 class="headline">Be Back Soon</h1>
+    <p class="subtext">Jason is crafting a new experience.</p>
+    <p class="caption">Sit tight. It'll be worth the wait.</p>
+
+    <button id="contactBtn" class="contact-button">Want to reach me?</button>
+
+    <!-- Typing Animation -->
+    <div class="typing-container">
+      <span id="typedText"></span><span class="cursor">|</span>
+    </div>
+
+    <!-- Modal -->
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Contact Me</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
+          <input type="email" placeholder="Your email" required />
+          <textarea placeholder="Your message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="particles-config.js"></script>
+
+  <script>
+    // Contact Modal
+    const modal = document.getElementById('contactModal');
+    const btn = document.getElementById('contactBtn');
+    const closeBtn = document.querySelector('.close-btn');
+
+    btn.onclick = () => modal.style.display = 'flex';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = e => { if (e.target == modal) modal.style.display = 'none'; };
+
+    // Typing Animation
+    const typedText = document.getElementById('typedText');
+    const phrases = [
+      "Building something fresh...",
+      "Injecting creativity...",
+      "Almost ready for launch."
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let typingSpeed = 70;
+    let pauseBetween = 1800;
+
+    function typePhrase() {
+      const currentPhrase = phrases[phraseIndex];
+      if (charIndex < currentPhrase.length) {
+        typedText.textContent += currentPhrase.charAt(charIndex);
+        charIndex++;
+        setTimeout(typePhrase, typingSpeed);
+      } else {
+        setTimeout(erasePhrase, pauseBetween);
+      }
+    }
+
+    function erasePhrase() {
+      if (charIndex > 0) {
+        typedText.textContent = typedText.textContent.slice(0, -1);
+        charIndex--;
+        setTimeout(erasePhrase, 40);
+      } else {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typePhrase, 300);
+      }
+    }
+
+    typePhrase();
+  </script>
+</body>
+</html>
